@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons>
+            <ion-menu-button></ion-menu-button>
+            <ion-title>
+                Settings
+            </ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div *ngIf="settings" id="settings-container">
+        <ion-list *ngFor="let setting of settings">
+            <ion-item *ngFor="let item of setting | keyvalue">
+                <ion-label>{{item.key}}</ion-label>
+                <ion-toggle [(ngModel)]=item.value
+                            (ionChange)="updateSetting(item)"></ion-toggle>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div id="button-container">
+        <ion-button [routerDirection]="'root'" [routerLink]="'/home'">
+            Go back to home
+            <ion-icon slot="end" name="home"></ion-icon>
+        </ion-button>
+    </div>
+</ion-content>

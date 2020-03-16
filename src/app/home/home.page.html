@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons>
+            <ion-menu-button></ion-menu-button>
+            <ion-title>
+                App with Settings
+            </ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div id="container">
+        <strong>Very simple app with a sidemenu and a settings page!</strong>
+        <div id="button-container">
+            <ion-button [routerDirection]="'root'" [routerLink]="'/settings'">
+                Go to the settings
+                <ion-icon slot="end" name="settings"></ion-icon>
+            </ion-button>
+        </div>
+    </div>
+</ion-content>
