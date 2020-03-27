@@ -14,13 +14,12 @@
         <ion-list *ngFor="let setting of settings">
             <ion-item *ngFor="let item of setting | keyvalue">
                 <ion-label>{{item.key}}</ion-label>
-                <ion-toggle [(ngModel)]=item.value
-                            (ionChange)="updateSetting(item)"></ion-toggle>
+                <ion-toggle [(ngModel)]=item.value (ionChange)="updateSetting(item)"></ion-toggle>
             </ion-item>
         </ion-list>
     </div>
     <div id="button-container">
-        <ion-button [routerDirection]="'root'" [routerLink]="'/home'">
+        <ion-button [color]="buttonColorChanged ? 'secondary' : 'primary'" [routerDirection]="'root'" [routerLink]="'/home'">
             Go back to home
             <ion-icon slot="end" name="home"></ion-icon>
         </ion-button>

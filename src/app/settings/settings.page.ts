@@ -9,8 +9,9 @@ import {NativeStorage} from '@ionic-native/native-storage/ngx'
 })
 export class SettingsPage {
 
-    defaultSettings = [{'Benachrichtigungen erhalten': true}, {'Hintergrundfarbe blau': false}]
+    defaultSettings = [{'Receive push messages': true}, {'Change button color': false}]
     settings = []
+    buttonColorChanged = false
 
     constructor(
         private platform: Platform,
@@ -66,7 +67,7 @@ export class SettingsPage {
 
     handleSetting(settingName: string, settingValue: boolean) {
         switch (settingName) {
-            case 'Benachrichtigungen erhalten':
+            case 'Receive push messages':
                 if (settingValue === true) {
                     console.log('Subscribing to topic')
                     // subscribe to topic
@@ -75,13 +76,15 @@ export class SettingsPage {
                     // unsubscribe from topic
                 }
                 break
-            case 'Hintergrundfarbe blau':
+            case 'Change button color':
                 if (settingValue === true) {
-                    console.log('Change color to blue')
+                    console.log('Primary button color')
                     // change background color
+                    this.buttonColorChanged = true
                 } else {
-                    console.log('Change color to white')
+                    console.log('Secondary button color')
                     // change background color
+                    this.buttonColorChanged = false
                 }
                 break
         }
